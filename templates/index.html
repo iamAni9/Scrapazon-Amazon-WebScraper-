@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Scraping App</title>
+</head>
+<body>
+    <h4>This is a basic website created within a limited timeframe. Given more time, we can make it more attractive by adding features and improving the user interface (UI).</h3>
+        <form action="/scrape" method="post" style="margin-top: 50px">
+        <label for="header" style="font-weight: bold;">Header:</label>
+        <input type="text" id="header" name="header"><br><br>
+        <span style="display: flex; align-items: center;">
+            <h5 style="color: red;"> Go to this website to check your user agent </h5>
+            <a href="https://www.whatismybrowser.com/detect/what-is-my-user-agent/" target="_blank" style="margin-left: 10px">Check Here</a>
+        </span>
+
+        <label for="url" style="font-weight: bold;">URL:</label>
+        <input type="text" id="url" name="url"><br><br>
+
+        <label for="proxy_list" style="font-weight: bold;">Proxy List:</label>
+        <textarea id="proxy_list" name="proxy_list" rows="4" cols="50"></textarea><br><br>
+
+        <span style="display: flex; align-items: center;">
+            <h5 style="color: red;"> Go to this website to use the free proxies, NOTE: follow README </h5>
+            <a href="https://proxyscrape.com/free-proxy-list" target="_blank" style="margin-left: 10px">Check Here</a>
+        </span>
+
+        <input type="submit" value="Scrape" id="btn" style="border-radius: 5px; font-size: 25px; font-weight: bold;">
+
+    </form>
+
+    <div id="loading" style="display: none;">
+        Loading...
+    </div>
+
+    <h1>{{ message }}</h1>
+
+    {% if show_download %}
+    <div id="result" style="display: block">
+        <a href="/static/scraping_data.json" download>Download JSON</a>
+    </div>
+    <script>
+        document.querySelector('form').addEventListener('submit', function() {
+            document.getElementById('loading').style.display = 'none';
+        });
+    </script>
+    {% endif %}
+
+    <script>
+        const form = document.querySelector('form');
+        const submit_btn = document.getElementById('btn');
+
+        form.addEventListener('submit', function() {
+            document.getElementById('loading').style.display = 'block';
+        });
+
+    </script>
+</body>
+</html>
+
+
