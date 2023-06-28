@@ -1,4 +1,6 @@
-# Web-Scraper
+# Scrapazon (Amazon WebScraper)
+Specially created for scraping the products details from the amazon website.
+
 You should have python install in your system. https://www.python.org/downloads/
 <br><br><strong>REQUIREMENTS -</strong>
 1) pip install flask 
